@@ -1,4 +1,4 @@
-from jsonrpc_utils.objects.error import JSONRPCError
+from jsonrpc_utils.objects import JSONRPCError
 
 
 # Some predefined error objects.

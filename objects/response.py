@@ -1,4 +1,4 @@
-from jsonrpc_utils.objects.error import JSONRPCError
+from .error import JSONRPCError
 
 
 class JSONRPCResponse(dict):
