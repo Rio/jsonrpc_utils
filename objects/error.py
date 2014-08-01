@@ -1,6 +1,9 @@
-class JSONRPCError(dict):
+from .base import JSONRPCBase
+
+
+class JSONRPCError(JSONRPCBase):
     def __init__(self, code, message, data=None):
-        dict.__init__(self)
+        JSONRPCBase.__init__(self)
 
         self["code"] = code
         self["message"] = message

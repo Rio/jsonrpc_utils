@@ -1,6 +1,9 @@
-class JSONRPCNotification(dict):
+from .base import JSONRPCBase
+
+
+class JSONRPCNotification(JSONRPCBase):
     def __init__(self, method, params=None):
-        dict.__init__(self)
+        JSONRPCBase.__init__(self)
 
         self["jsonrpc"] = "2.0"
         self["method"] = method

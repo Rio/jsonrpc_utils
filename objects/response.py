@@ -1,9 +1,10 @@
+from .base import JSONRPCBase
 from .error import JSONRPCError
 
 
-class JSONRPCResponse(dict):
+class JSONRPCResponse(JSONRPCBase):
     def __init__(self, id, result=None, error=None):
-        dict.__init__(self)
+        JSONRPCBase.__init__(self)
 
         self["jsonrpc"] = "2.0"
 
