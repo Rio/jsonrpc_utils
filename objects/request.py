@@ -1,6 +1,6 @@
 import uuid
 
-from objects.notification import JSONRPCNotification
+from jsonrpc_utils.objects.notification import JSONRPCNotification
 
 
 class JSONRPCRequest(JSONRPCNotification):
