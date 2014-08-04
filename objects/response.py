@@ -14,8 +14,16 @@ class JSONRPCResponse(JSONRPCBase):
             self["result"] = result
 
         elif error and not result:
-            if not isinstance(error, JSONRPCError):
-                raise TypeError("Error object must be of type JSONRPCError.")
+            if not isinstance(error, JSONRPCError) and not isinstance(error, dict):
+                raise TypeError("Error object must be of type JSONRPCError or dict.")
+
+            if isinstance(error, dict):
+                error = JSONRPCError.from_dict(error)
+
+                print(error)
+
+                if not error:
+                    raise TypeError("Error must not be None.")
 
             self["error"] = error
 
