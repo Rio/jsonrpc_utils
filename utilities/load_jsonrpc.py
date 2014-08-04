@@ -14,10 +14,10 @@ def jsonrpc_from_dict(jsonrpc_dictionary):
     dict_keys = jsonrpc_dictionary.keys()
 
     if not "jsonrpc" in dict_keys:
-        raise ValueError("Invalid JSON-RPC message.")
+        raise ValueError("jsonrpc field is missing.")
 
     if jsonrpc_dictionary["jsonrpc"] != "2.0":
-        raise ValueError("Invalid JSON-RPC message.")
+        raise ValueError("jsonrpc field is not 2.0.")
 
     if "method" in dict_keys and "id" in dict_keys:
         return JSONRPCRequest.from_dict(jsonrpc_dictionary)
@@ -29,5 +29,5 @@ def jsonrpc_from_dict(jsonrpc_dictionary):
         return JSONRPCResponse.from_dict(jsonrpc_dictionary)
 
     else:
-        raise ValueError("Invalid JSON-RPC message.")
+        raise ValueError("No fitting JSON-RPC object found for keys: {0}.".format(dict_keys))
 # end jsonrpc_from_dict
