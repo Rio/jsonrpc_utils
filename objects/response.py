@@ -20,11 +20,6 @@ class JSONRPCResponse(JSONRPCBase):
             if isinstance(error, dict):
                 error = JSONRPCError.from_dict(error)
 
-                print(error)
-
-                if not error:
-                    raise TypeError("Error must not be None.")
-
             self["error"] = error
 
         else:
