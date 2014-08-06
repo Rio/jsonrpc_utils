@@ -1,1 +1,1 @@
-from .load_jsonrpc import load_jsonrpc
+from .load_object import loads

@@ -1,1 +1,1 @@
-from .utilities import load_jsonrpc
+from .utilities import loads

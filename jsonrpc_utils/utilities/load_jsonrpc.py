@@ -2,13 +2,16 @@ import json
 
 from jsonrpc_utils.objects import JSONRPCRequest, JSONRPCResponse, JSONRPCNotification
 
-def load_jsonrpc(json_string):
-    result_dict = json.loads(json_string)
+def loads(json_string):
+    try:
+        result_dict = json.loads(json_string)
+        jsonrpc_object = jsonrpc_from_dict(result_dict)
 
-    jsonrpc_object = jsonrpc_from_dict(result_dict)
+    except ValueError:
+        jsonrpc_object = jsonrpc_utils.errors.PARSE_ERROR
 
     return jsonrpc_object
-# end load_jsonrpc
+# end loads
 
 def jsonrpc_from_dict(jsonrpc_dictionary):
     dict_keys = jsonrpc_dictionary.keys()
