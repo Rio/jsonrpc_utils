@@ -1,6 +1,7 @@
 import json
 
 from jsonrpc_utils.objects import JSONRPCRequest, JSONRPCResponse, JSONRPCNotification
+from jsonrpc_utils.errors import PARSE_ERROR, INVALID_REQUEST
 
 def loads(json_string):
     try:
@@ -8,10 +9,10 @@ def loads(json_string):
         jsonrpc_object = jsonrpc_from_dict(result_dict)
 
     except ValueError:
-        jsonrpc_object = jsonrpc_utils.errors.PARSE_ERROR
+        jsonrpc_object = PARSE_ERROR
 
     except TypeError:
-        jsonrpc_object = jsonrpc_utils.errors.INVALID_REQUEST
+        jsonrpc_object = INVALID_REQUEST
 
     return jsonrpc_object
 # end loads
@@ -25,7 +26,7 @@ def jsonrpc_from_dict(jsonrpc_dictionary):
     if jsonrpc_dictionary["jsonrpc"] != "2.0":
         raise ValueError("jsonrpc field is not 2.0.")
 
-    if "method" in dict_keys and "id" in dict_keys:
+    if "method" in dict_keys:
         if not isinstance(jsonrpc_dictionary["method"], str):
             raise TypeError("method field is not of type string.")
 
