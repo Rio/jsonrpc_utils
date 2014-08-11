@@ -1,3 +1,9 @@
+import sys
+
+# do a check of what version of python is running and exchange str type for unicode
+if sys.version_info[0] == 2:
+    str = unicode
+
 import json
 
 from jsonrpc_utils.objects import JSONRPCRequest, JSONRPCResponse, JSONRPCNotification
