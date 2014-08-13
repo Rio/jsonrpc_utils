@@ -10,10 +10,10 @@ class JSONRPCResponse(JSONRPCBase):
 
         self["id"] = id
 
-        if result and not error:
+        if result is not None and not error:
             self["result"] = result
 
-        elif error and not result:
+        elif error and result is None:
             if not isinstance(error, JSONRPCError) and not isinstance(error, dict):
                 raise TypeError("Error object must be of type JSONRPCError or dict.")
 
