@@ -10,7 +10,7 @@ class JSONRPCNotification(JSONRPCBase):
 
         if params:
             if not isinstance(params, list) and not isinstance(params, dict):
-                raise TypeError("params MUST be a list of dictionary.")
+                raise TypeError("params MUST be a list or dictionary.")
 
             self["params"] = params
     # end __init__
