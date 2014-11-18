@@ -6,8 +6,8 @@ if sys.version_info[0] == 2:
 
 import json
 
-from jsonrpc_utils.objects import JSONRPCRequest, JSONRPCResponse, JSONRPCNotification
-from jsonrpc_utils.errors import PARSE_ERROR, INVALID_REQUEST
+from ..objects import JSONRPCRequest, JSONRPCResponse, JSONRPCNotification
+from ..errors import PARSE_ERROR, INVALID_REQUEST
 
 def loads(json_string):
     try:

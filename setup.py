@@ -1,8 +1,16 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
-    name="jsonrpc_utils",
-    version="0.1.0",
+    name="jsonrpc",
+    version="0.2.0",
 
-    packages=find_packages(),
-    )
+    packages=[
+        "labutils",
+        "labutils.jsonrpc",
+        "labutils.jsonrpc.errors",
+        "labutils.jsonrpc.objects",
+        "labutils.jsonrpc.utilities",
+        ],
+
+    namespace_packages=["labutils", ]
+)
